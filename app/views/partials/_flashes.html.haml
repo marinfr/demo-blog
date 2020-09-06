@@ -1,0 +1,11 @@
+- if flash.keys.any?
+  .flash-content{class: user_signed_in? ? "signed-in" : ""}
+    - if flash[:alert].present?
+      .status-bar.error
+      .flash-text= flash[:alert].capitalize
+    - elsif flash[:success].present?
+      .status-bar.success
+      .flash-text= flash[:success].capitalize
+    - elsif flash[:notice].present?
+      .status-bar.success
+      .flash-text= flash[:notice].capitalize

@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: meister_development
+  database: demo_blog_development
 
 test:
   <<: *default
-  database: meister_test
+  database: demo_blog_test

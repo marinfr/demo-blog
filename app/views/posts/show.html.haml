@@ -1,0 +1,23 @@
+.page-content
+  %h1.show-post-title= @post.title
+  .show-post-info
+    by
+    = @post.author.email
+    |
+    = @post.created_at.strftime("%-d %B %Y at %R")
+  .post-actions
+    - if can_manage_resource?(@post)
+      .main-actions
+        = link_to "Edit", "javascript:void(0)", class: "js-post-edit"
+        |
+        = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to remove this post?" }
+      .extra-actions
+        = link_to "Cancel", "javascript:void(0)", class: "js-cancel-post-edit"
+  .post-body
+    .content= simple_format @post.content, {}, wrapper_tag: "div", class: "wrapper"
+    .edit-form.edit-post
+      = render "posts/form"
+  %hr
+  .comments-container
+    = render "comments/form", comment: @comment
+    = render @post.comments

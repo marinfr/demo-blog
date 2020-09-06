@@ -1,0 +1,19 @@
+.comment-container{ data: { comment_id: comment.id.to_s }}
+  %hr
+  .comment-header
+    .comment-info
+      = comment.author.email
+      |
+      = comment.created_at.strftime("%-d %B %Y at %R")
+    .comment-actions
+      .main-actions
+        = link_to "Edit", "javascript:void(0)", class: "js-comment-edit"
+        |
+        = link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure you want to remove this comment?" }
+      .extra-actions
+        = link_to "Cancel", "javascript:void(0)", class: "js-cancel-comment-edit"
+  .comment-body
+    .content
+      = simple_format comment.content, {}, wrapper_tag: "div", class: "wrapper"
+    .edit-form.edit-comment
+      = render "comments/form", comment: comment

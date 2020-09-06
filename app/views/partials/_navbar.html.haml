@@ -1,0 +1,10 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  %a.navbar-brand{href: root_path} Demo Blog
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", "type" => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %form.form-inline.my-2.my-lg-0{action: new_post_path}
+      %button.btn.btn-dark.my-2.my-sm-0.submit-button{type: "submit"} New post
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link"

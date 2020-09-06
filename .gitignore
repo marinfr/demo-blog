@@ -6,6 +6,7 @@
 
 .ruby-version
 database.yml
+.DS_Store
 
 # Ignore bundler config.
 /.bundle

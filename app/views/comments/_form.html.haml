@@ -1,0 +1,7 @@
+= form_with(model: [@post, comment], local: true, class: "js-form") do |f|
+  .field
+    = f.label :content, "Comment"
+    = f.text_area :content, value: comment.content.try(:gsub, "\r\n<br>", "<br>")
+
+  .actions
+  = f.submit

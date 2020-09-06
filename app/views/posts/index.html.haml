@@ -1,0 +1,17 @@
+.page-content
+  .index-navigation
+    = link_to "All posts", root_path, class: !@my_posts ? "disabled" : ""
+    |
+    = link_to "My posts", my_posts_path, class: @my_posts ? "disabled" : ""
+  %hr
+
+  - @posts.each do |post|
+    %h1= link_to post.title, post_path(post), class: "index-post-title"
+    .post-info
+      by
+      = post.author.email
+      |
+      = post.created_at.strftime("%-d %B %Y at %R")
+    %hr
+
+  .digg_pagination= will_paginate @posts

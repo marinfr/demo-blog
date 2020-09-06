@@ -11,6 +11,7 @@ gem 'webpacker', '~> 4.0'
 gem 'redis', '~> 4.0'
 gem 'devise'
 gem 'haml'
+gem 'will_paginate'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
