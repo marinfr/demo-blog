@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     get "/my_posts", to: "posts#index", my_posts: true
 
     resources :posts, except: [:edit] do
-      resources :comments, only: [:create, :update, :destroy]
+      resources :comments,  only: [:create, :update, :destroy]
     end
+
+    resources :reactions, only: [:create]
   end
 end

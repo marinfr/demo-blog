@@ -14,7 +14,9 @@
       .extra-actions
         = link_to "Cancel", "javascript:void(0)", class: "js-cancel-post-edit"
   .post-body
-    .content= simple_format @post.content, {}, wrapper_tag: "div", class: "wrapper"
+    .content
+      = simple_format @post.content, {}, wrapper_tag: "div", class: "wrapper"
+      = render "shared/reactions", resource: @post
     .edit-form.edit-post
       = render "posts/form"
   %hr

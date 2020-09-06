@@ -128,7 +128,6 @@ form {
 }
 
 .post-body, .comment-body {
-  margin-bottom: 50px;
   .content {
     br:first-child {
       display: none;
@@ -155,5 +154,36 @@ form {
   }
   .edit-form {
     display: none;
+  }
+}
+
+.post-body {
+  .reactions {
+    margin-top: 30px;
+  }
+}
+
+.comment-body {
+  margin-bottom: 20px;
+  .reactions {
+    margin-top: 10px;
+  }
+}
+
+.reactions {
+  height: 14px;
+  text-align: right;
+  span {
+    margin-right: 8px;
+    cursor: pointer;
+    &.like.active {
+      color: #82aeff;
+    }
+    &.smile.active {
+      color: #c7bd35;
+    }
+    &.heart.active {
+      color: #ff6969;
+    }
   }
 }

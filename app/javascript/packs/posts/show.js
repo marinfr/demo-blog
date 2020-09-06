@@ -33,8 +33,30 @@ $(document).ready(function () {
     $comment.find(".edit-form").hide();
   }
 
+  function handlePostReaction(event) {
+    $target    = $(event.currentTarget)
+    $container = $target.closest(".reactions")
+
+    $.ajax({
+      type: "POST",
+      url:  $container.data("url"),
+      data: {
+        resource_id:   $container.data("resourceId"),
+        resource_type: $container.data("resourceType"),
+        type:          $target.data("type")
+      },
+      success: function (data) {
+        location.reload();
+      },
+      error: function (data) {
+        location.reload();
+      }
+    });
+  }
+
   $(".js-post-edit").click(handlePostEdit);
   $(".js-cancel-post-edit").click(cancelPostEdit);
   $(".js-comment-edit").click(handleCommentEdit);
   $(".js-cancel-comment-edit").click(cancelCommentEdit);
+  $(".reactions span").click(handlePostReaction);
 });

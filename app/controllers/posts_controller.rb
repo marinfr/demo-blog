@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post
-      .includes(:author, comments: :author)
+      .includes(:author, :reactions, comments: [:author, :reactions])
       .order("comments.created_at DESC")
       .find_by(id: params[:id])
 

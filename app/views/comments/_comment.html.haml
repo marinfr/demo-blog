@@ -1,4 +1,4 @@
-.comment-container{ data: { comment_id: comment.id.to_s }}
+.comment-container
   %hr
   .comment-header
     .comment-info
@@ -16,5 +16,6 @@
   .comment-body
     .content
       = simple_format comment.content, {}, wrapper_tag: "div", class: "wrapper"
+      = render "shared/reactions", resource: comment
     .edit-form.edit-comment
       = render "comments/form", comment: comment
