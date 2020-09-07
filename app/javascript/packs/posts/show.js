@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
   function handlePostEdit() {
     $(".comments-container").hide()
     $(".post-actions .main-actions").hide()
