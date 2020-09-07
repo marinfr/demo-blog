@@ -65,6 +65,13 @@ class PostsController < ApplicationController
 
   def find_post_for_current_user
     @post = current_user.posts.find_by(id: params[:id])
-    redirect_to :root unless @post
+
+    unless @post
+      flash[:alert] = "This post does not exist."
+      respond_to do |format|
+        format.json { render json: { redirect_url: root_path }, status: 400 }
+        format.html { redirect_to root_path }
+      end
+    end
   end
 end

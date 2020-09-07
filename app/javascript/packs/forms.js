@@ -40,12 +40,18 @@ $(document).ready(function () {
         }
       },
       error:   function (data) {
-        $.each(data.responseJSON.errors, function (field, errors) {
-          $field = $form.find("[name$='[" + field + "]']");
-          validationErrors = errors.join("<br>");
-          $field.after("<p class='validation-errors'>" + validationErrors + "</p>");
-          $field.closest(".field").addClass("invalid");
-        });
+        redirectURL = data.responseJSON.redirect_url
+
+        if (redirectURL) {
+          return window.location = redirectURL
+        } else {
+          $.each(data.responseJSON.errors, function (field, errors) {
+            $field = $form.find("[name$='[" + field + "]']");
+            validationErrors = errors.join("<br>");
+            $field.after("<p class='validation-errors'>" + validationErrors + "</p>");
+            $field.closest(".field").addClass("invalid");
+          });
+        }
       }
     });
   }

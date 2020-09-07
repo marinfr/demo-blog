@@ -33,16 +33,19 @@ class CommentsController < ApplicationController
 
   def permitted_params
     params.require(:comment).permit(:content).tap do |whitelisted|
-      whitelisted[:content] = helpers.sanitize(helpers.normalize_content(params[:comment][:content]))
+      whitelisted[:content] = helpers.strip_tags(params[:comment][:content].strip)
     end
   end
 
   def find_post
-    @post = Post.find(params[:post_id])
+    @post = Post.find_by(id: params[:post_id])
 
     unless @post
       flash[:alert] = "This post does not exist."
-      redirect_to root_path
+      respond_to do |format|
+        format.json { render json: { redirect_url: root_path }, status: 400 }
+        format.html { redirect_to root_path }
+      end
     end
   end
 
@@ -51,7 +54,10 @@ class CommentsController < ApplicationController
 
     unless @comment
       flash[:alert] = "This comment does not exist."
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.json { render json: {} }
+        format.html { redirect_to post_path(@post) }
+      end
     end
   end
 end
