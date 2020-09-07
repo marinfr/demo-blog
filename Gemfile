@@ -12,6 +12,7 @@ gem 'redis', '~> 4.0'
 gem 'devise'
 gem 'haml'
 gem 'will_paginate'
+gem 'graphql'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -24,6 +25,7 @@ group :test do
 end
 
 group :development do
+  gem 'graphiql-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
