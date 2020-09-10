@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     if resource.save
       sign_up(resource_name, resource)
-      render json: { redirect_to: root_path }
+      render json: { redirect_url: root_path }
     else
       render json: { errors: resource.errors.messages }, status: 400
     end

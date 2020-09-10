@@ -5,15 +5,9 @@ class Comment < ApplicationRecord
 
   validates :content, presence: true, length: { minimum: 2, maximum: 8000 }
 
-  def likes
-    reactions.select { |reaction| reaction.like? }
-  end
-
-  def smiles
-    reactions.select { |reaction| reaction.smile? }
-  end
-
-  def hearts
-    reactions.select { |reaction| reaction.heart? }
+  Reaction::REACTION_TYPES.each do |type|
+    define_method "#{type.pluralize}" do
+      reactions.select { |reaction| reaction.public_send("#{type}?") }
+    end
   end
 end

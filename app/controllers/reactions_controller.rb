@@ -1,9 +1,11 @@
 class ReactionsController < ApplicationController
   def create
-    reaction = current_user.reactions.find_or_initialize_by(
-      resource_id:   params[:resource_id],
-      resource_type: params[:resource_type],
-      type:          params[:type]
+    return head(:bad_request) if [Reaction::POST, Reaction::COMMENT].exclude?(params[:resource_type])
+
+    resource = params[:resource_type].capitalize.constantize.find(params[:resource_id])
+    reaction = resource.reactions.find_or_initialize_by(
+      user_id: current_user.id,
+      type:    params[:type]
     )
 
     if reaction.persisted?

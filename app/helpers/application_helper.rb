@@ -19,7 +19,7 @@ module ApplicationHelper
     return "" unless reactors.present?
 
     if reactors.size > 5
-      reactors[0..5].join("<br>") + "<br>and #{reactors.size-5} more"
+      reactors[0..4].join("<br>") + "<br>and #{reactors.size-5} more"
     else
       reactors.join("<br>")
     end

@@ -9,7 +9,7 @@ class Reaction < ApplicationRecord
   validates :resource_type, presence: true, inclusion: { in: RESOURCE_TYPES }
   validates :type,          presence: true, inclusion: { in: REACTION_TYPES, message: "has to be either 'like', 'smile' or 'heart'" }
 
-  before_create :remove_previous_reaction
+  before_create :remove_previous_reaction_for_user
 
   (RESOURCE_TYPES + REACTION_TYPES).each do |const|
     const_set(const.upcase, const)
@@ -23,7 +23,7 @@ class Reaction < ApplicationRecord
 
   private
 
-  def remove_previous_reaction
+  def remove_previous_reaction_for_user
     Reaction.where(resource_type: resource_type, resource_id: resource_id, user_id: user_id).delete_all
   end
 end
