@@ -14,7 +14,7 @@ A blog app built with:
   1. Make sure you have Ruby installed: `ruby -v` (I have `2.5.7`)
   2. Make sure you have MySQL installed: `mysql -VERSION` (I have `8.0.21`)
   3. Download the ZIP file of this project and unpack it
-  4. Create a duplicate of the `/config/database.example.yml` file, name it `database.yml` and replace `YOUR_USERNAME_HERE` and `YOUR_PASSWORD_HERE` with your DB username and password
+  4. In `database.yml` replace `YOUR_USERNAME_HERE` and `YOUR_PASSWORD_HERE` with your DB username and password
   5. Open a terminal window in the project folder and run `bundle install`
   6. Run `bundle exec rails db:setup`
   7. Run `bundle exec rails s`
