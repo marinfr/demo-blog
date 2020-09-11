@@ -19,6 +19,7 @@ A blog app built with:
   6. Run `bundle exec rails db:setup`
   7. Run `bundle exec rails s`
   8. Go to http://localhost:3000 in your browser
+  9. Sign in with `user1@mail.com` `123456`, `user2@mail.com` `123456` or create a new account
 
 # How to test the GraphQL API?
 
