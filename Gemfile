@@ -22,6 +22,10 @@ group :development, :test do
   gem 'factory_bot_rails'
 end
 
+group :development, :production do
+  gem 'graphiql-rails'
+end
+
 group :test do
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
@@ -29,7 +33,6 @@ group :test do
 end
 
 group :development do
-  gem 'graphiql-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
