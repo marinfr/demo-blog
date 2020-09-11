@@ -8,7 +8,7 @@ module Mutations
 
     def resolve(post_id:, content:)
       comment = Post.find(post_id).comments.new(
-        content: content,
+        content: CommentsController.helpers.strip_tags(content.strip),
         user_id: context[:current_user].id
       )
 
