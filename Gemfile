@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.7'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
@@ -20,6 +19,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'factory_bot_rails'
+  gem 'mysql2', '>= 0.4.4'
 end
 
 group :development, :production do
@@ -30,6 +30,10 @@ group :test do
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :development do
