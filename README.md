@@ -1,6 +1,6 @@
 # Demo Blog
 
-**You can check the app on-air here: `link coming soon`**
+**You can check the app on-air here: https://marinf-demo-blog.herokuapp.com**
 
 A blog app built with:
 
