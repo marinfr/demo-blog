@@ -18,4 +18,5 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
+  database: demo_blog_production
   url: <%= ENV['DATABASE_URL'] %>
