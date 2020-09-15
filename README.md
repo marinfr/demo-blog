@@ -23,8 +23,8 @@ A blog app built with:
 
 # How to test the GraphQL API?
 
-1. Go to http://localhost:3000/graphiql in your browser (you have to sign in as a user - authentication good enough for development)
-2. You can use examples from the file below
+1. Go to http://localhost:3000/graphiql or https://marinf-demo-blog.herokuapp.com/graphiql in your browser (you have to sign in as a user - authentication good enough for development)
+2. You can use examples from the list below
 
 ```
 query Posts {
